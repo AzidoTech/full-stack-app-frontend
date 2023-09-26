@@ -24,6 +24,9 @@
   height: 40vmin;
   pointer-events: none;
 }
+.error{
+  color: crimson;
+}
 
 
 @media (prefers-reduced-motion: no-preference) {
