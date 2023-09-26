@@ -3,15 +3,17 @@ import Nav from "./components/Nav";
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Footer from "./components/Footer";
-import SignUp from "./components/SignUp";
-import LogIn from "./components/LogIn";
+// import SignUp from "./components/SignUp";
+// import LogIn from "./components/LogIn";
+
+import AuthProvider from "./provider/authProvider";
 
 function App() {
   return (
     <div className="App">
-      <BrowserRouter>
-        <Nav />
-        <Routes>
+      {/* <BrowserRouter> */}
+      <Nav />
+      {/* <Routes>
           <Route path="/" element={<h1>Product Listing Component</h1>} />
           <Route path="/add" element={<h1>Add Product Component</h1>} />
           <Route path="/update" element={<h1>Update Component</h1>} />
@@ -20,7 +22,10 @@ function App() {
           <Route path="/signup" element={<SignUp />} />
           <Route path="/login" element={<LogIn />} />
         </Routes>
-      </BrowserRouter>
+      // </BrowserRouter> */}
+      <AuthProvider>
+        <Routes />
+      </AuthProvider>
       <Footer />
     </div>
   );
