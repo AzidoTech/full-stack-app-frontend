@@ -66,7 +66,7 @@ const SignUp = () => {
             onChange={(e) => setEmail(e.target.value)}
           />
           <TextField
-            label="Enter Your Name*"
+            label="Enter Your Password*"
             variant="outlined"
             onChange={(e) => setPassword(e.target.value)}
             placeholder="Enter password"
