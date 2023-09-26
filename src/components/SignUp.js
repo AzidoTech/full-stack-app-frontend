@@ -1,5 +1,15 @@
 import React, { useState } from "react";
 import { UseState } from "react";
+import {
+  Box,
+  Card,
+  CardContent,
+  Grid,
+  Typography,
+  Stack,
+  TextField,
+  Button,
+} from "@mui/material";
 
 const SignUp = () => {
   const [name, setName] = useState("");
@@ -31,33 +41,42 @@ const SignUp = () => {
   };
 
   return (
-    <div className="register">
-      <h1>Register</h1>
-      <input
-        className="inputBox"
-        type="text"
-        value={name}
-        onChange={(e) => setName(e.target.value)}
-        placeholder="Enter Name"
-      />
-      <input
-        className="inputBox"
-        type="text"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-        placeholder="Enter email"
-      />
-      <input
-        className="inputBox"
-        type="password"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-        placeholder="Enter password"
-      />
-      <button onClick={handleSignUp} className="appButton" type="buttion">
-        Sign Up
-      </button>
-    </div>
+    <Box className="register">
+      <Typography
+        color="#262626"
+        fontWeight="bold"
+        gutterBottom
+        variant="h4"
+        component="div"
+      >
+        Register
+      </Typography>
+      <Box>
+        <Stack spacing={2}>
+          <TextField
+            label="Enter Your Name*"
+            variant="outlined"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+          />
+          <TextField
+            label="Enter Your Email*"
+            variant="outlined"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+          <TextField
+            label="Enter Your Name*"
+            variant="outlined"
+            onChange={(e) => setPassword(e.target.value)}
+            placeholder="Enter password"
+          />
+          <Button onClick={handleSignUp} variant="contained" size="large">
+            Submit
+          </Button>
+        </Stack>
+      </Box>
+    </Box>
   );
 };
 
