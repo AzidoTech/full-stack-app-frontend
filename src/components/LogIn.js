@@ -4,21 +4,15 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 
 const LogIn = () => {
-  // Define Yup validation schema
   const validationSchema = Yup.object().shape({
     email: Yup.string().required("Email is required").email("Invalid email"),
-    password: Yup.string().required("Password is required"),
+    password: Yup.string()
+      .required("Password is required")
+      .matches(
+        /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/,
+        "Must Contain 8 Characters, One Uppercase, One Lowercase, One Number and One Special Case Character"
+      ),
   });
-
-  //   const validationSchema = Yup.object().shape({
-  //     email: Yup.string().required("Email is required").email("Invalid email"),
-  //     password: Yup.string()
-  //       .required("Password is required")
-  //       .matches(
-  //         /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/,
-  //         "Password must contain at least 8 characters, including one uppercase letter, one lowercase letter, one digit, and one special character."
-  //       ),
-  //   });
 
   const handleSubmit = async (values) => {
     console.log("Form values => ", values);
@@ -37,8 +31,6 @@ const LogIn = () => {
     } catch (error) {
       console.log(error);
     }
-
-    // Add your login logic here
   };
 
   return (
