@@ -136,7 +136,7 @@ const SignUp = () => {
               </div>
               <div>
                 <Field
-                  type="confirmPassword"
+                  type="password"
                   name="confirmPassword"
                   as={TextField}
                   label="Confirm Password*"
