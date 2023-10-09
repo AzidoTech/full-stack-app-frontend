@@ -13,29 +13,25 @@ const Nav = () => {
     <div>
       <ul className="nav-ul">
         <li>
-          <Link to="/">{t("Products")}</Link>
+          <Link to="/">{t("HEADERS.Products")}</Link>
         </li>
         <li>
-          <Link to="/add">
-            {t("Add")} {t("Products")}
-          </Link>
+          <Link to="/add">{t("HEADERS.translated-AddProducts")}</Link>
         </li>
         <li>
-          <Link to="/update">
-            {t("Update")} {t("Products")}
-          </Link>
+          <Link to="/update">{t("HEADERS.translated-UpdateProducts")}</Link>
         </li>
         <li>
-          <Link to="/logout">{t("Logout")}</Link>
+          <Link to="/logout">{t("HEADERS.Logout")}</Link>
         </li>
         <li>
-          <Link to="/profile">{t("Profile")}</Link>
+          <Link to="/profile">{t("HEADERS.Profile")}</Link>
         </li>
         <li>
-          <Link to="/signup">{t("SignUp")}</Link>
+          <Link to="/signup">{t("HEADERS.SignUp")}</Link>
         </li>
         <li>
-          <Link to="/login">{t("LogIn")}</Link>
+          <Link to="/login">{t("HEADERS.LogIn")}</Link>
           {/* <Link to="/login">{t("translated-paragraph")}</Link> */}
         </li>
         <li>

@@ -1,4 +1,4 @@
-{
+{ "HEADERS":{
     "Products":"Products",
     "Add" : "Add",
     "Update" : "Update",
@@ -6,6 +6,7 @@
     "Profile":"Profile",
     "SignUp":"SignUp",
     "LogIn":"LogIn",
-    "translated-paragraph": "We are going to translate this paragraph - how will it be in Polish?"
-    
+    "translated-UpdateProducts": "Update Products",
+    "translated-AddProducts": "Add Products"
+}
 }

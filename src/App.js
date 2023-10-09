@@ -51,7 +51,7 @@ function App() {
           <Route
             path="/add"
             element={
-              <h1>
+              <h2>
                 KONG Puppy toy is customized for a growing puppy’s baby teeth,
                 the unique, natural rubber formula is the most gentle within the
                 KONG rubber toy line. Designed to meet the needs of a puppy’s
@@ -64,7 +64,7 @@ function App() {
                 play time? Be sure to stuff with puppy kibble and a dash of
                 peanut butter. Add to the fun by including KONG Puppy Snacks and
                 top with KONG Puppy Easy Treat.
-              </h1>
+              </h2>
             }
           />
           <Route path="/update" element={<h1>Update Component</h1>} />

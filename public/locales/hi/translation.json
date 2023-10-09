@@ -1,4 +1,5 @@
 {
+    "HEADERS":{
     "Products":"उत्पाद",
     "Add" : "जोड़ें",
     "Update" : "अद्यतन करें",
@@ -6,6 +7,7 @@
     "Profile":"प्रोफ़ाइल",
     "SignUp":"साइन अप करें",
     "LogIn":"लॉग इन करें",
-    "translated-paragraph": "हम इस अनुच्छेद का अनुवाद करने जा रहे हैं - यह पोलिश में कैसा होगा?"
-    
+    "translated-UpdateProducts": "उत्पाद अद्यतन करें",
+    "translated-AddProducts": "उत्पाद जोड़ें"
+}   
 }
