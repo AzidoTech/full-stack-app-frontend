@@ -1,9 +1,11 @@
 import React from "react";
+import { useLogout } from "../hooks/useLogout";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import i18next from "i18next";
 
 const Nav = () => {
+  const { logout } = useLogout();
   const { t } = useTranslation();
   const handleLanguageClick = (e) => {
     i18next.changeLanguage(e.target.value);
@@ -22,18 +24,12 @@ const Nav = () => {
           <Link to="/update">{t("HEADERS.translated-UpdateProducts")}</Link>
         </li>
         <li>
-          <Link to="/logout">{t("HEADERS.Logout")}</Link>
-        </li>
-        <li>
           <Link to="/profile">{t("HEADERS.Profile")}</Link>
         </li>
-        <li>
-          <Link to="/signup">{t("HEADERS.SignUp")}</Link>
+        <li onClick={logout}>
+          <Link to="/login">{t("HEADERS.Logout")}</Link>
         </li>
-        <li>
-          <Link to="/login">{t("HEADERS.LogIn")}</Link>
-          {/* <Link to="/login">{t("translated-paragraph")}</Link> */}
-        </li>
+
         <li>
           <div>
             <select onChange={(e) => handleLanguageClick(e)}>

@@ -3,8 +3,8 @@
   margin: 0px;
   background-color: skyblue;
 }
-.nav-ul li{
-  display:  inline-block;
+.nav-ul li {
+  display: inline-block;
   padding: 10px;
 }
 .nav-ul li a {
@@ -24,10 +24,9 @@
   height: 40vmin;
   pointer-events: none;
 }
-.error{
+.error {
   color: crimson;
 }
-
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
@@ -50,11 +49,12 @@
   color: #61dafb;
 }
 
-.register, .product{
+.register,
+.product {
   margin-left: 30%;
   margin-right: 30%;
 }
-.login{
+.login {
   margin-left: 30%;
   margin-top: 100px;
 }
@@ -75,7 +75,7 @@
   border: solid 1px;
   cursor: pointer;
 }
-.nav-right{
+.nav-right {
   text-align: right;
 }
 .logo {
@@ -106,7 +106,7 @@
   padding: 5px;
 }
 
-.product-list ul{
+.product-list ul {
   margin: 0;
 }
 
@@ -125,4 +125,11 @@
   to {
     transform: rotate(360deg);
   }
+}
+.goog-logo-link {
+  display: none !important;
+}
+
+.goog-te-gadget {
+  color: transparent !important;
 }

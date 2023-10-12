@@ -1,12 +1,13 @@
 import { useState } from "react";
-import { useAuthContext } from "./useAuthContext";
+// import { useAuthContext } from "./useAuthContext";
 
 export const useSignUp = () => {
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(null);
-  const { dispatch } = useAuthContext();
+  const [signupSuccessful, setSignupSuccessful] = useState(false);
+  // const { dispatch } = useAuthContext();
 
-  const signup = async (email, firstName, lastName, password) => {
+  const signup = async (email, name, password) => {
     setIsLoading(true);
     setError(null);
 
@@ -18,8 +19,7 @@ export const useSignUp = () => {
         body: JSON.stringify({
           email,
           password,
-          firstName,
-          lastName,
+          name,
         }),
       }
     );
@@ -27,18 +27,20 @@ export const useSignUp = () => {
     const json = await response.json();
 
     if (!response.ok) {
+      setSignupSuccessful(false);
       setIsLoading(false);
       setError(json.error);
     }
     if (response.ok) {
-      localStorage.setItem("user", JSON.stringify(json));
+      setSignupSuccessful(true);
+      //localStorage.setItem("user", JSON.stringify(json));
 
       // update the auth context
-      dispatch({ type: "LOGIN", payload: json });
+      //dispatch({ type: "LOGIN", payload: json });
       // update loading state
       setIsLoading(false);
     }
   };
 
-  return { signup, isLoading, error };
+  return { signup, signupSuccessful, isLoading, error };
 };
