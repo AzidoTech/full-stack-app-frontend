@@ -3,8 +3,28 @@ import { useLogout } from "../hooks/useLogout";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import i18next from "i18next";
+import { useEffect } from "react";
 
 const Nav = () => {
+  const googleTranslateElementInit = () => {
+    new window.google.translate.TranslateElement(
+      {
+        pageLanguage: "en",
+        autoDisplay: false,
+      },
+      "google_translate_element"
+    );
+  };
+  useEffect(() => {
+    var addScript = document.createElement("script");
+    addScript.setAttribute(
+      "src",
+      "//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
+    );
+    document.body.appendChild(addScript);
+    window.googleTranslateElementInit = googleTranslateElementInit;
+  }, []);
+
   const { logout } = useLogout();
   const { t } = useTranslation();
   const handleLanguageClick = (e) => {
@@ -38,6 +58,9 @@ const Nav = () => {
               <option value={"hi"}>Hindi</option>
             </select>
           </div>
+        </li>
+        <li onClick={logout}>
+          <div id="google_translate_element"></div>
         </li>
       </ul>
     </div>
