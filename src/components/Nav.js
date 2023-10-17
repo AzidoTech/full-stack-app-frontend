@@ -59,7 +59,8 @@ const Nav = () => {
             </select>
           </div>
         </li>
-        <li onClick={logout}>
+
+        <li>
           <div id="google_translate_element"></div>
         </li>
       </ul>

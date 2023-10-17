@@ -5,21 +5,14 @@ import Profile from "./pages/Profile";
 import UpdateProducts from "./pages/UpdateProducts";
 import Login from "./pages/Login";
 import SignUp from "./pages/SignUp";
+import PageNotFound from "./pages/PageNotFound";
+import ProtectedRoute from "./utils/ProtectedRoute";
+import NotProtectedRoute from "./utils/NotProtectedRoute";
 
-import { useAuthContext } from "./hooks/useAuthContext";
-import {
-  BrowserRouter as Router,
-  Navigate,
-  Routes,
-  Route,
-} from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Footer from "./components/Footer";
 
-import { useEffect } from "react";
-
 function App() {
-  const { user } = useAuthContext();
-
   return (
     <div className="App">
       <div id="google_translate_element"></div>
@@ -28,29 +21,30 @@ function App() {
           <Route
             exact
             path="/"
-            element={user ? <Products /> : <Navigate to="/login" />}
+            element={<ProtectedRoute component={Products} />}
           />
           <Route
             path="/add"
-            element={user ? <AddProducts /> : <Navigate to="/login" />}
+            element={<ProtectedRoute component={AddProducts} />}
           />
           <Route
             path="/update"
-            element={user ? <UpdateProducts /> : <Navigate to="/login" />}
+            element={<ProtectedRoute component={UpdateProducts} />}
           />
 
           <Route
             path="/profile"
-            element={user ? <Profile /> : <Navigate to="/login" />}
+            element={<ProtectedRoute component={Profile} />}
           />
           <Route
             path="/signup"
-            element={user ? <Navigate to="/" /> : <SignUp />}
+            element={<NotProtectedRoute component={SignUp} />}
           />
           <Route
             path="/login"
-            element={user ? <Navigate to="/" /> : <Login />}
+            element={<NotProtectedRoute component={Login} />}
           />
+          <Route path="*" element={<PageNotFound />} />
         </Routes>
 
         <Footer />
