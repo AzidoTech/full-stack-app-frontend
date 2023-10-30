@@ -5,6 +5,9 @@ import { useFormik } from "formik";
 import * as yup from "yup";
 import axios from "axios";
 
+import Loading from "react-fullscreen-loading";
+import SweetAlertPopup from "../common/sweetAlertPopup";
+
 const validationSchema = yup.object({
   userName: yup.string().required("Name is required"),
   subject: yup.string().required("Subject is required"),
@@ -38,49 +41,58 @@ export default function ContactUs() {
     onSubmit: async (values) => {
       try {
         setIsloading(true);
+
         await axios
           .post("https://localhost/3000/create-user", {
             ...values,
           })
           .then((response) => {
-            console.log(response);
-            // SweetAlertPopup(
-            //   "Thanks for contacting OceanPe. One of our colleagues will get back to you soon! Have a great day!",
-            //   "Success",
-            //   "success"
-            // );
-            formik.resetForm();
             setIsloading(false);
+            // console.log(response);
+            SweetAlertPopup(
+              "Thanks for contacting ABC. One of our colleagues will get back to you soon! Have a great day!",
+              "Success",
+              "success"
+            );
+            formik.resetForm();
           });
       } catch (error) {
-        console.log(error);
-        // SweetAlertPopup(
-        //   "Please try connecting again. If the issue keeps happening, Kindly contact: info@oceanpe.in",
-        //   "Error",
-        //   "error"
-        // );
-        formik.resetForm();
+        // console.log(error);
         setIsloading(false);
+        SweetAlertPopup(
+          "Please try connecting again. If the issue keeps happening, Kindly contact: info@ABC.in",
+          "Error",
+          "error"
+        );
+        formik.resetForm();
       }
     },
   });
 
   return (
-    <div>
+    <div className={classes.mainDiv}>
+      {isLoading ? (
+        <Loading
+          loading={true}
+          background="rgba(236, 240, 241, 0.7)"
+          loaderColor="#e74c3c"
+        />
+      ) : (
+        <Loading
+          loading={false}
+          background="rgba(236, 240, 241, 0.7)"
+          loaderColor="#e74c3c"
+        />
+      )}
       <form onSubmit={formik.handleSubmit}>
-        <Grid
-          container
-          columnSpacing={5}
-          rowSpacing={2}
-          style={{ padding: "1vw" }}
-        >
+        <Grid container>
           <Grid item xs={12} sm={12} md={12}>
-            <div className={classes.frowdataaff}>
-              <div className={classes.frowtextaff}>Name</div>
+            <div>
+              <div>Name</div>
 
-              <div className={classes.frow1aff}>
+              <div>
                 <TextField
-                  size="normal"
+                  size="small"
                   label=""
                   placeholder="Enter Your Name"
                   variant="outlined"
@@ -97,12 +109,12 @@ export default function ContactUs() {
             </div>
           </Grid>
           <Grid item xs={12} sm={6} md={12}>
-            <div className={classes.frowdataaff}>
-              <div className={classes.frowtextaff}>Email</div>
+            <div>
+              <div>Email</div>
 
               <div className={classes.frow1aff}>
                 <TextField
-                  size="normal"
+                  size="small"
                   label=""
                   placeholder="Enter Your Email Address"
                   variant="outlined"
@@ -122,12 +134,13 @@ export default function ContactUs() {
           </Grid>
 
           <Grid item xs={12} sm={6} md={12}>
-            <div className={classes.frowdataaff}>
-              <div className={classes.frowtextaff}>
+            <div>
+              <div>
                 Mobile Number<sup className={classes.required}>*</sup>
               </div>
-              <div className={classes.frow1aff}>
+              <div>
                 <TextField
+                  size="small"
                   label=""
                   placeholder="Enter Your Mobile Number"
                   variant="outlined"
@@ -145,10 +158,11 @@ export default function ContactUs() {
           </Grid>
 
           <Grid item xs={12} sm={6} md={12}>
-            <div className={classes.frowdataaff}>
-              <div className={classes.frowtextaff}>Subject</div>
-              <div className={classes.frow1aff}>
+            <div>
+              <div>Subject</div>
+              <div>
                 <TextField
+                  size="small"
                   label=""
                   placeholder="Enter Your Subject"
                   variant="outlined"
@@ -166,16 +180,15 @@ export default function ContactUs() {
           </Grid>
 
           <Grid item xs={12} sm={12} md={12}>
-            <div className={classes.frowdataaff}>
-              <div className={classes.frowtextaff}>Message</div>
-              <div className={classes.frow1aff}>
+            <div>
+              <div>Message</div>
+              <div>
                 <TextField
+                  size="small"
                   label=""
                   placeholder="Enter Your Message"
                   variant="outlined"
                   id="message"
-                  // InputLabelProps={{ shrink: true }}
-                  // fullWidth={true}
                   name="message"
                   value={formik.values.message}
                   onChange={formik.handleChange}
@@ -191,7 +204,7 @@ export default function ContactUs() {
 
         <div className={classes.buttondiv}>
           <Button variant="contained" type="submit">
-            Send Message ↗
+            Send Message
           </Button>
         </div>
       </form>
