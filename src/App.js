@@ -8,6 +8,7 @@ import SignUp from "./pages/SignUp";
 import PageNotFound from "./pages/PageNotFound";
 import ProtectedRoute from "./utils/ProtectedRoute";
 import NotProtectedRoute from "./utils/NotProtectedRoute";
+import ContactUs from "./pages/ContactUs";
 
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Footer from "./components/Footer";
@@ -44,6 +45,11 @@ function App() {
             path="/login"
             element={<NotProtectedRoute component={Login} />}
           />
+          <Route
+            path="/contactUs"
+            element={<NotProtectedRoute component={ContactUs} />}
+          />
+
           <Route path="*" element={<PageNotFound />} />
         </Routes>
 

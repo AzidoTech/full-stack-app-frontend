@@ -49,6 +49,9 @@ const Nav = () => {
         <li onClick={logout}>
           <Link to="/login">{t("HEADERS.Logout")}</Link>
         </li>
+        <li onClick={logout}>
+          <Link to="/ContactUs">Contact Us</Link>
+        </li>
 
         <li>
           <div>
