@@ -211,3 +211,54 @@ export default function ContactUs() {
     </div>
   );
 }
+
+// import React, { useState } from "react";
+
+// function ContactUs() {
+//   const [input1, setInput1] = useState(1);
+//   const [input2, setInput2] = useState(1);
+//   const constant1 = 22;
+//   const constant2 = 7;
+
+//   const handleChangeInput1 = (event) => {
+//     setInput1(parseFloat(event.target.value) || 0);
+//   };
+
+//   const handleChangeInput2 = (event) => {
+//     setInput2(parseFloat(event.target.value) || 0);
+//   };
+
+//   const sum = 30 * (input1 * constant1 + input2 * constant2);
+//   const dailyIncome = input1 * constant1 + input2 * constant2;
+
+//   return (
+//     <div>
+//       <div>
+//         <div style={{ color: "blue" }}>Money Transfer</div>
+//         <div>Avg transaction of ₹4500</div>
+//         <div style={{ display: "flex" }}>
+//           <input type="number" value={input1} onChange={handleChangeInput1} />
+//           <div>No of Transactions Per Day</div>
+//         </div>
+//       </div>
+
+//       <div style={{ color: "blue" }}>Aadhaar ATM - AePS</div>
+//       <div>Avg transaction of ₹3500</div>
+//       <div style={{ display: "flex" }}>
+//         <input type="number" value={input2} onChange={handleChangeInput2} />
+//         <div>No of Transactions Per Day</div>
+//       </div>
+//       <div>
+//         <h2>Result</h2>
+//         <p>
+//           Sum of (No of Money Transfer Transactions per Day* {constant1}) and
+//           (No of Aadhaar ATM - AePS Transactions Per Day * {constant2}):{" "}
+//           <h3>Total Income: Rs.{sum}/Month </h3> {""}
+//           and the<h3> Income Per Day : Rs. {dailyIncome}</h3>
+//         </p>
+//       </div>
+//     </div>
+//   );
+// }
+
+// export default ContactUs;
